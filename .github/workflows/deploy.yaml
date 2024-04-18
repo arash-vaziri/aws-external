@@ -16,6 +16,10 @@ jobs:
       with:
         repository: arash-vaziri/aws-intro
         path: ./all-actions
+    
+    - name: Monitor
+      run: |
+        ls -lah
 
     - name: Authorize runner ssh access
       uses: ./all-actions/actions/authorize-aws-access@main      
