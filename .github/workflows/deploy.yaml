@@ -19,7 +19,7 @@ jobs:
     
     - name: Monitor
       run: |
-        ls -lah
+        ls -lah ./all-actions
 
     - name: Authorize runner ssh access
       uses: ./all-actions/actions/authorize-aws-access@main      
