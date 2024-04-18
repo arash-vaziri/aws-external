@@ -11,8 +11,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Checkout your action repository
+        uses: actions/checkout@v2
+        with:
+          repository: arash-vaziri/aws-intro
+          path: ./all-actions
+
     - name: Authorize runner ssh access
-      uses: arash-vaziri/aws-intro/actions/authorize-aws-access@main      
+      uses: ./all-actions/actions/authorize-aws-access@main      
       with:
         aws-access-key-id: "${{ secrets.ACCESS_KEY }}"
         aws-secret-access-key: "${{ secrets.SECRET_KEY }}"
