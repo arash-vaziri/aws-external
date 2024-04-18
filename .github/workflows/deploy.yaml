@@ -12,10 +12,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Checkout your action repository
-        uses: actions/checkout@v2
-        with:
-          repository: arash-vaziri/aws-intro
-          path: ./all-actions
+      uses: actions/checkout@v2
+      with:
+        repository: arash-vaziri/aws-intro
+        path: ./all-actions
 
     - name: Authorize runner ssh access
       uses: ./all-actions/actions/authorize-aws-access@main      
