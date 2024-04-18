@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - main 
+
+ 
+jobs:
+  authorize_aws_access:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Authorize runner ssh access
+      uses: arash-vaziri/aws-intro/aws-actions/authorize-aws-access
+      with:
+        aws-access-key-id: "${{ secrets.ACCESS_KEY }}"
+        aws-secret-access-key: "${{ secrets.SECRET_KEY }}"
+        aws-region: 'eu-west-1'
+        security-group-id: 'sg-ad64ddc9'
+
+    # - name: Delay
+    #   run: sleep 90  
+
+    # - name: Revoke runner ssh access
+    #   uses: ./actions/revoke-aws-access
+    #   with:
+    #     aws-access-key-id: "${{ secrets.ACCESS_KEY }}"
+    #     aws-secret-access-key: "${{ secrets.SECRET_KEY }}"
+    #     aws-region: 'eu-west-1'
+    #     security-group-id: 'sg-ad64ddc9'
+    #     target-ip: "40.65.196.156/32"
